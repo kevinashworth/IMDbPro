@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>IMDb Pro</title>
+<script type="text/javascript" charset="utf-8">
+
+function beforeNavigateHandler(event) {
+  
+  var h = event.url;
+  var newURL = h;
+  
+  if (h == null)
+    return false;
+  
+  var i = h.indexOf("imdb.com");
+  var p = h.indexOf("http://pro.imdb.com");
+  
+  // stop processing pro URLs  
+  if (p == 0) {
+    return false;
+  }
+
+  // Pro URLs for 'title' don't end with 'combined' so remove it
+  var c = h.indexOf('combined');
+  var t = h.indexOf('title'); 
+  if ((t > 1) && (c > 1)) {
+    newURL = h.substring(0, c);
+  }
+  
+  if (i > 0) {
+    newURL = newURL.replace(/http:\/\/[a-z]+/,'http://pro');
+    safari.application.activeBrowserWindow.activeTab.url = newURL;
+  }
+
+  return false;
+}
+ 
+// register with application:
+safari.application.addEventListener("beforeNavigate", beforeNavigateHandler, true);
+
+</script>
+</head>
+<body>
+</body>
+</html>
