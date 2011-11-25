@@ -44,7 +44,9 @@
 			<string>Some</string>
 		</dict>
 	</dict>
+	<key>Update Manifest URL</key>
+	<string>https://raw.github.com/kevinashworth/IMDbPro/master/update.plist</string>
 	<key>Website</key>
-	<string>http://www.kevinashworth.com/imdbpro/safariextension.html</string>
+	<string>https://github.com/kevinashworth/IMDbPro</string>
 </dict>
 </plist>
