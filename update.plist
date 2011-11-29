@@ -10,11 +10,11 @@
 			<key>Developer Identifier</key>
 			<string>HNJTKC233V</string>
 			<key>CFBundleVersion</key>
-			<string>4</string>
+			<string>5</string>
 			<key>CFBundleShortVersionString</key>
-			<string>0.4</string>
+			<string>0.4.1</string>
 			<key>URL</key>
-			<string>https://github.com/downloads/kevinashworth/IMDbPro/IMDbPro.0.4.safariextz</string>
+			<string>https://github.com/downloads/kevinashworth/IMDbPro/IMDbPro.0.4.1.safariextz</string>
 		</dict>
 	</array>
 </dict>
