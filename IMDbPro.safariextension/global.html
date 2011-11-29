@@ -14,9 +14,10 @@ function beforeNavigateHandler(event) {
   
   var i = h.indexOf("imdb.com");
   var p = h.indexOf("http://pro.imdb.com");
+  var s = h.indexOf("https://secure.imdb.com");
   
-  // stop processing pro URLs  
-  if (p == 0) {
+  // Stop processing pro and secure URLs (we are done), or if no subdomain (let it redirect)
+  if ((p == 0) || (s == 0) || (i == 7)) {
     return false;
   }
 
@@ -34,9 +35,18 @@ function beforeNavigateHandler(event) {
 
   return false;
 }
+
+/*function settingsChangeHandler(event) {
+  if (event.key == "bnModifyCss") {
+    if (safari.extension.settings.keyModifyCss == false) {
+      safari.extension.removeContentStyleSheets();
+    }
+  }
+}*/
  
 // register with application:
 safari.application.addEventListener("beforeNavigate", beforeNavigateHandler, true);
+//safari.extension.settings.addEventListener("change", settingsChangeHandler, false);
 
 </script>
 </head>
