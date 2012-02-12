@@ -14,10 +14,12 @@ function beforeNavigateHandler(event) {
   
   var i = h.indexOf("imdb.com");
   var p = h.indexOf("http://pro.imdb.com");
+  var r1 = h.indexOf("https://resume.imdb.com/");
+  var r2 = h.indexOf("http://resume.imdb.com/");
   var s = h.indexOf("https://secure.imdb.com");
   
-  // Stop processing pro and secure URLs (we are done), or if no subdomain (let it redirect)
-  if ((p == 0) || (s == 0) || (i == 7)) {
+  // Stop processing pro, resume & secure URLs (we are done), or if no subdomain (let it redirect)
+  if ((p == 0) || (r1 == 0) || (r2 == 0) || (s == 0) || (i == 7)) {
     return false;
   }
 
