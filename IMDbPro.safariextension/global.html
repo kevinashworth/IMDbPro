@@ -12,14 +12,16 @@ function beforeNavigateHandler(event) {
   if (h == null)
     return false;
   
+  var a = h.indexOf("http://addpro.imdb.com");
   var i = h.indexOf("imdb.com");
   var p = h.indexOf("http://pro.imdb.com");
   var r1 = h.indexOf("https://resume.imdb.com/");
   var r2 = h.indexOf("http://resume.imdb.com/");
   var s = h.indexOf("https://secure.imdb.com");
   
-  // Stop processing pro, resume & secure URLs (we are done), or if no subdomain (let it redirect)
-  if ((p == 0) || (r1 == 0) || (r2 == 0) || (s == 0) || (i == 7)) {
+  // Stop processing addpro, pro, resume & secure URLs (we are done),
+  // or if no subdomain (let it redirect)
+  if ((a==0) || (p == 0) || (r1 == 0) || (r2 == 0) || (s == 0) || (i == 7)) {
     return false;
   }
 
