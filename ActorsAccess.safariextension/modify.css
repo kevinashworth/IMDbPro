@@ -1,0 +1,16 @@
+div.alert[id=message] {
+	display: none;
+}
+
+#mainContent .wrapper table.text tr td table tr td a img
+{
+   background-color: yellow;
+   margin: 1em;
+   padding: 1em;
+}
+#mainContent .wrapper table.text tr td table tr td a ~ a img
+{
+   background-color: green;
+   margin: 1em;
+   padding: 1em;
+}

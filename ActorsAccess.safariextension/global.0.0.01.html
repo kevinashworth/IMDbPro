@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Actors Access</title>
+<script type="text/javascript" language="javascript" charset="utf-8">
+
+/*function navigateHandler(event) {
+	$(document).ready(function() {
+		$("#message").css("display","none");
+		doPageHandling();
+	}); 
+}
+
+function doPageHandling() {
+  
+	alert("Should be invisible.");
+  var h = safari.application.activeBrowserWindow.activeTab.url;
+  //alert ("h = " + h);
+  if (h == null)
+    return false;
+  
+  var a = h.indexOf("actorsaccess.com");
+  var s = h.indexOf("https://secure.actorsaccess.com");
+  
+	var l1 = h.indexOf("https://secure.actorsaccess.com/projects/?login");
+	var l2 = h.indexOf("loginSecure");
+  
+    // When there's a login form, process it if user wants
+  if (safari.extension.settings.bLoginAutomatically) {
+  	if ((l1 == 0) || (l2 > 1)) {
+			doLogin();
+	  }
+  }
+
+  // Stop processing secure URLs (we are done)
+  else if ( (s == 0) ) {
+  	alert("Stop processing, please.");
+    return false;
+  }
+
+  return false;
+}
+
+function doLogin() {
+//	alert ("Insert login jQuery here.");
+//	$("form#login").submit();
+//	$('input[value="go"]').click();
+//	document.getElementById('message').style.borderWidth = '14px';
+	$(".alert").css("border","30px solid red");
+}
+
+function settingsChangeHandler(event) {
+  if (event.key == "bnModifyCss") {
+    if (safari.extension.settings.keyModifyCss == false) {
+      safari.extension.removeContentStyleSheets();
+    }
+  }
+}*/
+ 
+// register with application:
+//safari.application.addEventListener("beforeNavigate", beforeNavigateHandler, true);
+//safari.application.addEventListener("navigate", navigateHandler, true);
+//safari.extension.settings.addEventListener("change", settingsChangeHandler, false);
+
+
+safari.application.addEventListener("message", function(e) {
+	console.log(safari.extension.settings.bLoginAutomatically);
+	console.log(safari.extension.settings);
+	console.log(safari.extension.settings.getItem("bLoginAutomatically"));
+	if(e.name === "getSettings") {
+		e.target.page.dispatchMessage("setSettings", {
+			bLoginAutomatically: safari.extension.settings.getItem("bLoginAutomatically"),
+			bHideMessages: safari.extension.settings.getItem("bHideMessages")
+		});
+	}
+}, false);
+
+
+</script>
+</head>
+<body>
+</body>
+</html>
